@@ -1,0 +1,5 @@
+<%= @school.name %>
+<%= @school.address %>
+
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@school.latitude},#{@school.longitude}&markers=#{@school.latitude},#{@school.longitude}&zoom=15&size=640x400&key=#{ENV['GOOGLE_API_KEY']}",
+              class: 'img-fluid', alt: "#{@school.name} on the map"%>

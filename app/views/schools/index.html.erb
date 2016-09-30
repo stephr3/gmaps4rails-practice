@@ -8,7 +8,7 @@
 </div>
 
 <% @schools.each do |school| %>
-  <li><strong><%= school.name %></strong> Lat: <%= school.latitude %>, Long: <%= school.longitude %></li>
+  <li><strong><%= link_to school.name, school_path(school) %></strong> Lat: <%= school.latitude %>, Long: <%= school.longitude %></li>
 <% end %>
 <%= link_to 'Add a New School', new_school_path, class: 'btn btn-primary' %>
 
