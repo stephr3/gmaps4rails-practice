@@ -1,6 +1,20 @@
 <h1>Index</h1>
 
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
 <% @schools.each do |school| %>
   <li><strong><%= school.name %></strong> Lat: <%= school.latitude %>, Long: <%= school.longitude %></li>
 <% end %>
 <%= link_to 'Add a New School', new_school_path, class: 'btn btn-primary' %>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(12);
+  });
+</script>
