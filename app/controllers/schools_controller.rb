@@ -2,6 +2,7 @@ class SchoolsController < ApplicationController
   def index
     @schools = School.all
     @hash = Gmaps4rails.build_markers(@schools) do |school, marker|
+      marker.infowindow "<b>#{school.name}</b><p>#{school.address}</p>"
       marker.lat school.latitude
       marker.lng school.longitude
     end
