@@ -1,0 +1,8 @@
+<h1>Add a New School</h1>
+<%= form_for @school do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.submit 'Add School', class: 'btn btn-primary' %>
+<% end %>
